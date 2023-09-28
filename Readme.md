@@ -25,10 +25,11 @@ Proyecto de testing para la Microservicios Hiberus University
 ### Qué se pide
 1. Diseña, implementa, verifica y valida el código de Estrategia y de sus clases colaboradoras para que el
    método esViable funcione correctamente
-2. Alcanza, al menos, un 90% de cobertura de instrucciones con los test de JUnit implementados.
-3. Que todos los métodos (excepto los de test) tengan 8 líneas o menos (con código).
-4. Que todas las clases (excepto las de test) tengan 20 líneas o menos (con código).
-5. Que solo haya un nivel de indentación en cada método (es decir, solo un TAB).
+2. Debes crear la clase Combustible, Neumaticos y todas aquellas que consideras necesarias
+3. Alcanza, al menos, un 90% de cobertura de instrucciones con los test de JUnit implementados.
+4. Que todos los métodos (excepto los de test) tengan 8 líneas o menos (con código).
+5. Que todas las clases (excepto las de test) tengan 20 líneas o menos (con código).
+6. Que solo haya un nivel de indentación en cada método (es decir, solo un TAB).
 
 # Autora
 Leticia Sánchez Romero
