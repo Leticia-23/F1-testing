@@ -41,14 +41,20 @@ public class NeumaticosTest {
         assertThrows(CantidadNeumaticosNegativo.class, () -> new Neumaticos(MARCAS_NEUMATICOS,PORCENTAJE_VIDA,cantidadNeumaticos));
     }
 
-    @ParameterizedTest
-    @CsvSource({
-            "-0.1f",
-            "100.1f"
-    })
-    void neumaticosNoInstanciadosSiPorcentajeVidaNoValido(float porcentajeVida) {
+    @Test
+    void neumaticosNoInstanciadosSiPorcentajeVidaMenorACero() {
+
+        float porcentajeVida = -0.1f;
         assertThrows(PorcentajeVidaNeumaticoNoValido.class, () -> new Neumaticos(MARCAS_NEUMATICOS,porcentajeVida,CANTIDAD_NEUMATICOS));
     }
+
+    @Test
+    void neumaticosNoInstanciadosSiPorcentajeVidaMayorACien() {
+
+        float porcentajeVida = 100.1f;
+        assertThrows(PorcentajeVidaNeumaticoNoValido.class, () -> new Neumaticos(MARCAS_NEUMATICOS,porcentajeVida,CANTIDAD_NEUMATICOS));
+    }
+
 
     @ParameterizedTest
     @CsvSource({
@@ -65,5 +71,17 @@ public class NeumaticosTest {
 
         // Then
         assertEquals(marcaNeumatico, neumaticos.getMarca());
+    }
+
+    @Test
+    void neumaticosInstanciadoCorrecto() throws PorcentajeVidaNeumaticoNoValido, CantidadNeumaticosNegativo {
+
+        // Given & When
+        Neumaticos neumaticos = new Neumaticos(MARCAS_NEUMATICOS, PORCENTAJE_VIDA, CANTIDAD_NEUMATICOS);
+
+        // Then
+        assertEquals(MARCAS_NEUMATICOS, neumaticos.getMarca());
+        assertEquals(PORCENTAJE_VIDA, neumaticos.getPorcentajeVida());
+        assertEquals(CANTIDAD_NEUMATICOS, neumaticos.getCantidadNeumaticos());
     }
 }

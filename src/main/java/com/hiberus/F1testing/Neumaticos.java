@@ -27,4 +27,12 @@ public class Neumaticos {
     public MarcaNeumatico getMarca() {
         return marca;
     }
+
+    public float getPorcentajeVida() {
+        return porcentajeVida;
+    }
+
+    public int getCantidadNeumaticos() {
+        return cantidadNeumaticos;
+    }
 }

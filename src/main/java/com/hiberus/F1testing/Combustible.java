@@ -21,4 +21,8 @@ public class Combustible {
     public TipoCombustible getTipoCombustible() {
         return tipoCombustible;
     }
+
+    public float getLitrosCombustible() {
+        return litrosCombustible;
+    }
 }

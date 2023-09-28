@@ -1,43 +1,55 @@
 package com.hiberus.F1testing;
 
 
+import com.hiberus.F1testing.exceptions.CombustibleNegativoException;
+import com.hiberus.F1testing.exceptions.PorcentajeVidaNeumaticoNoValido;
+import com.hiberus.F1testing.exceptions.RecorridoKmNegativo;
+
 public class Estrategia {
 
     private final Combustible combustible;
     private final float combustibleConsumidoPorKmRecorrido;
     private final Neumaticos neumaticos;
     private final float porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido;
-    private final float kilometrosARecorrer;
+    private final float kilometrosRecorrido;
 
-    public Estrategia(Combustible combustible, float combustibleConsumidoPorKmRecorrido, Neumaticos neumaticos, float porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido, float kilometrosARecorrer) {
+    public Estrategia(Combustible combustible, float combustibleConsumidoPorKmRecorrido, Neumaticos neumaticos, float porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido, float kilometrosRecorrido) throws CombustibleNegativoException, PorcentajeVidaNeumaticoNoValido, RecorridoKmNegativo {
+
+        if (combustibleConsumidoPorKmRecorrido < 0) {
+            throw  new CombustibleNegativoException();
+        }
+
+        if (porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido < 0 || porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido > 100 ) {
+            throw new PorcentajeVidaNeumaticoNoValido();
+        }
+
+        if (kilometrosRecorrido < 0 ) {
+            throw new RecorridoKmNegativo();
+        }
+
         this.combustible = combustible;
         this.combustibleConsumidoPorKmRecorrido = combustibleConsumidoPorKmRecorrido;
         this.neumaticos = neumaticos;
         this.porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido = porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido;
-        this.kilometrosARecorrer = kilometrosARecorrer;
+        this.kilometrosRecorrido = kilometrosRecorrido;
     }
 
     public boolean esViable() {
-
-        boolean estrategiaViable = true;
-
-        return estrategiaViable;
+        return !sinCombustibleAntesFinRecorrido(combustible, combustibleConsumidoPorKmRecorrido, kilometrosRecorrido) && !neumaticosDesgastadosAntesFinRecorrido(neumaticos, porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido, kilometrosRecorrido) && (neumaticos.getCantidadNeumaticos() == 4);
     }
-
 
     private boolean sinCombustibleAntesFinRecorrido(Combustible combustible, float combustibleConsumidoPorKmRecorrido, float kilometrosARecorrer) {
 
-        // TODO: teniendo combustible (l);  recorrido (km); y combustible consumido por km. Calcular combustible al final de recorrido. Si <=0 entonces return true sino false
+        float combustibleFinal = combustible.getLitrosCombustible() - kilometrosARecorrer * combustibleConsumidoPorKmRecorrido;
 
+        return combustibleFinal <= 0;
 
-
-        return false;
     }
 
     private boolean neumaticosDesgastadosAntesFinRecorrido(Neumaticos neumaticos, float porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido, float kilometrosARecorrer) {
 
-        // TODO: teniendo porcentaje vida consumido por km; porcentaje inicial neumáticos; y recorrido (km). Calcular porcentaje al final de recorrido, si <=0 entonces return true sino false
+        float porcentajeFinal = neumaticos.getPorcentajeVida() - kilometrosARecorrer * porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido;
 
-        return false;
+        return porcentajeFinal <= 0;
     }
 }

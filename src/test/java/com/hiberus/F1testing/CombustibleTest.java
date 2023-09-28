@@ -55,4 +55,14 @@ class CombustibleTest {
         assertEquals(tipoCombustible, combustible.getTipoCombustible());
     }
 
+    @Test
+    void combustibleInstanciadoCorrecto() throws CombustibleNegativoException {
+        //Given & When
+        Combustible combustible = new Combustible(TIPO_COMBUSTIBLE, LITROS_COMBUSTIBLE);
+
+        //Then
+        assertEquals(TIPO_COMBUSTIBLE, combustible.getTipoCombustible());
+        assertEquals(LITROS_COMBUSTIBLE, combustible.getLitrosCombustible());
+    }
+
 }
