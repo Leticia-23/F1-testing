@@ -1,9 +1,7 @@
 package com.hiberus.F1testing;
 
 import com.hiberus.F1testing.exceptions.CombustibleNegativoException;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -25,12 +23,16 @@ class CombustibleTest {
         System.out.println("FIN TEST COMBUSTIBLE");
     }
 
+    @AfterEach
+    void afterEach(TestInfo testInfo) {
+        System.out.println("Terminado el test: " + testInfo.getDisplayName());
+    }
+
 
     @Test
     void combustibleNoInstanciadoSiLitrosCombustibleNegativo() {
         // Given
         int litrosCombustible = -1;
-        TipoCombustible tipoCombustible = TipoCombustible.GASOLINA;
 
         // When & Then
         assertThrows(CombustibleNegativoException.class, () -> new Combustible(TIPO_COMBUSTIBLE,litrosCombustible));

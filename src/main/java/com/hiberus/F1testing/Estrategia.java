@@ -3,11 +3,19 @@ package com.hiberus.F1testing;
 
 public class Estrategia {
 
-    public Combustible combustible;
-    public float combustibleConsumidoPorKmRecorrido;
-    public Neumaticos neumaticos;
-    public float porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido;
-    public float kilometrosARecorrer;
+    private final Combustible combustible;
+    private final float combustibleConsumidoPorKmRecorrido;
+    private final Neumaticos neumaticos;
+    private final float porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido;
+    private final float kilometrosARecorrer;
+
+    public Estrategia(Combustible combustible, float combustibleConsumidoPorKmRecorrido, Neumaticos neumaticos, float porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido, float kilometrosARecorrer) {
+        this.combustible = combustible;
+        this.combustibleConsumidoPorKmRecorrido = combustibleConsumidoPorKmRecorrido;
+        this.neumaticos = neumaticos;
+        this.porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido = porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido;
+        this.kilometrosARecorrer = kilometrosARecorrer;
+    }
 
     public boolean esViable() {
 

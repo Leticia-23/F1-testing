@@ -1,5 +1,5 @@
 package com.hiberus.F1testing;
 
-public enum MarcasNeumatico {
+public enum MarcaNeumatico {
     PIRELLI, BRIDGESTONE
 }
