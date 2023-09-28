@@ -34,6 +34,7 @@ public class NeumaticosTest {
 
     @Test
     void combustibleNoInstanciadoSiLitrosCombustibleNegativo() {
+
         // Given
         int cantidadNeumaticos = -1;
 
@@ -44,14 +45,20 @@ public class NeumaticosTest {
     @Test
     void neumaticosNoInstanciadosSiPorcentajeVidaMenorACero() {
 
+        // Given
         float porcentajeVida = -0.1f;
+
+        // When & Then
         assertThrows(PorcentajeVidaNeumaticoNoValido.class, () -> new Neumaticos(MARCAS_NEUMATICOS,porcentajeVida,CANTIDAD_NEUMATICOS));
     }
 
     @Test
     void neumaticosNoInstanciadosSiPorcentajeVidaMayorACien() {
 
+        // Given
         float porcentajeVida = 100.1f;
+
+        // When & Then
         assertThrows(PorcentajeVidaNeumaticoNoValido.class, () -> new Neumaticos(MARCAS_NEUMATICOS,porcentajeVida,CANTIDAD_NEUMATICOS));
     }
 

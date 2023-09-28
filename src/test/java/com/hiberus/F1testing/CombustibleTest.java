@@ -31,6 +31,7 @@ class CombustibleTest {
 
     @Test
     void combustibleNoInstanciadoSiLitrosCombustibleNegativo() {
+
         // Given
         int litrosCombustible = -1;
 
@@ -57,6 +58,7 @@ class CombustibleTest {
 
     @Test
     void combustibleInstanciadoCorrecto() throws CombustibleNegativoException {
+
         //Given & When
         Combustible combustible = new Combustible(TIPO_COMBUSTIBLE, LITROS_COMBUSTIBLE);
 
