@@ -11,7 +11,7 @@ public class Estrategia {
 
     public boolean esViable() {
 
-        boolean estrategiaViable = false;
+        boolean estrategiaViable = true;
 
         return estrategiaViable;
     }
@@ -20,6 +20,8 @@ public class Estrategia {
     private boolean sinCombustibleAntesFinRecorrido(Combustible combustible, float combustibleConsumidoPorKmRecorrido, float kilometrosARecorrer) {
 
         // TODO: teniendo combustible (l);  recorrido (km); y combustible consumido por km. Calcular combustible al final de recorrido. Si <=0 entonces return true sino false
+
+
 
         return false;
     }
