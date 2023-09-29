@@ -36,5 +36,13 @@ Proyecto de testing para la Microservicios Hiberus University
 
 ![Diagrama de clases F1 Testing](./images/DiagramaClasesF1Testing.png)
 
+## Tests efectuados
+
+![Tests F1 Testing](./images/Tests-F1.png)
+
+## Covererage tests
+
+![Coverage F1 Testing](./images/Coverage-Tests-F1Testing.png)
+
 # Autora
 Leticia Sánchez Romero
