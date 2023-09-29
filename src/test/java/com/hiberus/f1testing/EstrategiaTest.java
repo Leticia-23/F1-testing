@@ -10,9 +10,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EstrategiaTest {
 
-    private final Combustible COMBUSTIBLE = new Combustible(TipoCombustible.DIESEL, 145.0f);
+    private final float LITROS_COMBUSTIBLE_INICIAL = 145.0f;
+    private final Combustible COMBUSTIBLE = new Combustible(TipoCombustible.DIESEL, LITROS_COMBUSTIBLE_INICIAL);
     private final float COMBUSTIBLE_CONSUMIDO_KM = 0.33f;
-    private final Neumaticos NEUMATICOS = new Neumaticos(MarcaNeumatico.BRIDGESTONE, 99.9f, 4);
+
+    private final float PORCENTAJE_VIDA_INICIAL = 99.9f;
+
+    private final int  CANTIDAD_NEUMATICOS = 4;
+    private final Neumaticos NEUMATICOS = new Neumaticos(MarcaNeumatico.BRIDGESTONE, PORCENTAJE_VIDA_INICIAL, CANTIDAD_NEUMATICOS);
     private final float PORCENTAJE_VIDA_NEUMATICOS_CONSUMIDO_KM = 0.1f;
     private final float KM_RECORRIDO = 330.0f;
 
@@ -21,11 +26,11 @@ class EstrategiaTest {
 
     @BeforeAll
     static void beforeAll() {
-        System.out.println("TEST ESTRATEGIA");}
+        System.out.println("TESTS ESTRATEGIA");}
 
     @AfterAll
     static void afterAll() {
-        System.out.println("FIN TEST ESTRATEGIA");
+        System.out.println("FIN TESTS ESTRATEGIA");
     }
 
     @AfterEach
@@ -87,7 +92,7 @@ class EstrategiaTest {
     void estrategiaNoViablePorSinCombustibleAntesFin() throws CombustibleNegativoException, PorcentajeVidaNeumaticoNoValido, RecorridoKmNegativo {
 
         // Given
-        Combustible combustible = new Combustible(TipoCombustible.GASOLINA, 100.0f);
+        Combustible combustible = new Combustible(TipoCombustible.GASOLINA, 108.9f);
 
         // Then
         Estrategia estrategia = new Estrategia(combustible, COMBUSTIBLE_CONSUMIDO_KM, NEUMATICOS, PORCENTAJE_VIDA_NEUMATICOS_CONSUMIDO_KM, KM_RECORRIDO);
@@ -100,7 +105,7 @@ class EstrategiaTest {
     void estrategiaNoViablePorNeumaticosDesgastadosAntesFin() throws PorcentajeVidaNeumaticoNoValido, CantidadNeumaticosNegativo, RecorridoKmNegativo, CombustibleNegativoException {
 
         // Given
-        Neumaticos neumaticos = new Neumaticos(MarcaNeumatico.PIRELLI, 33.0f, 4);
+        Neumaticos neumaticos = new Neumaticos(MarcaNeumatico.PIRELLI, 33.0f, CANTIDAD_NEUMATICOS);
 
         // Then
         Estrategia estrategia = new Estrategia(COMBUSTIBLE, COMBUSTIBLE_CONSUMIDO_KM, neumaticos, PORCENTAJE_VIDA_NEUMATICOS_CONSUMIDO_KM, KM_RECORRIDO);
@@ -113,7 +118,7 @@ class EstrategiaTest {
     void estrategiaNoViablePorCantidadNeumaticosDistintaDeCuatro() throws PorcentajeVidaNeumaticoNoValido, CantidadNeumaticosNegativo, RecorridoKmNegativo, CombustibleNegativoException {
 
         // Given
-        Neumaticos neumaticos = new Neumaticos(MarcaNeumatico.BRIDGESTONE, 100.0f, 5);
+        Neumaticos neumaticos = new Neumaticos(MarcaNeumatico.BRIDGESTONE, PORCENTAJE_VIDA_INICIAL, 5);
 
         // Then
         Estrategia estrategia = new Estrategia(COMBUSTIBLE, COMBUSTIBLE_CONSUMIDO_KM, neumaticos, PORCENTAJE_VIDA_NEUMATICOS_CONSUMIDO_KM, KM_RECORRIDO);

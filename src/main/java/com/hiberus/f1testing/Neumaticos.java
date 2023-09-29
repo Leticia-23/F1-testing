@@ -6,7 +6,6 @@ import com.hiberus.f1testing.exceptions.PorcentajeVidaNeumaticoNoValido;
 public class Neumaticos {
     private final MarcaNeumatico marca;
     private float porcentajeVida;
-
     private final int cantidadNeumaticos;
 
     public Neumaticos(MarcaNeumatico marca, float porcentajeVida, int cantidadNeumaticos) throws CantidadNeumaticosNegativo, PorcentajeVidaNeumaticoNoValido {

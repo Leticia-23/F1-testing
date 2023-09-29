@@ -9,25 +9,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CombustibleTest {
-
     private final TipoCombustible TIPO_COMBUSTIBLE = TipoCombustible.GASOLINA;
     private final float LITROS_COMBUSTIBLE = 145.0f;
 
     @BeforeAll
     static void beforeAll() {
-        System.out.println("TEST COMBUSTIBLE");
+        System.out.println("TESTS COMBUSTIBLE");
     }
 
     @AfterAll
     static void afterAll() {
-        System.out.println("FIN TEST COMBUSTIBLE");
+        System.out.println("FIN TESTS COMBUSTIBLE");
     }
 
     @AfterEach
     void afterEach(TestInfo testInfo) {
         System.out.println("Terminado el test: " + testInfo.getDisplayName());
     }
-
 
     @Test
     void noInstanciarCombustibleSiLitrosCombustibleNegativo() {
@@ -65,5 +63,4 @@ class CombustibleTest {
         //Then
         assertEquals(LITROS_COMBUSTIBLE, combustible.getLitrosCombustible());
     }
-
 }

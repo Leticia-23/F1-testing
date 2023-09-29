@@ -18,12 +18,12 @@ class NeumaticosTest {
 
     @BeforeAll
     static void beforeAll() {
-        System.out.println("TEST NEUMATICOS");
+        System.out.println("TESTS NEUMATICOS");
     }
 
     @AfterAll
     static void afterAll() {
-        System.out.println("FIN TEST NEUMATICOS");
+        System.out.println("FIN TESTS NEUMATICOS");
     }
 
     @AfterEach
