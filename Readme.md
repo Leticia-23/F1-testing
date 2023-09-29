@@ -40,7 +40,7 @@ Proyecto de testing para la Microservicios Hiberus University
 
 ![Tests F1 Testing](./images/Tests-F1.png)
 
-## Covererage tests
+## Tests coverage
 
 ![Coverage F1 Testing](./images/Coverage-Tests-F1Testing.png)
 
