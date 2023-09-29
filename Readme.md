@@ -31,5 +31,10 @@ Proyecto de testing para la Microservicios Hiberus University
 5. Que todas las clases (excepto las de test) tengan 20 líneas o menos (con código).
 6. Que solo haya un nivel de indentación en cada método (es decir, solo un TAB).
 
+
+## Diagrama
+
+![Diagrama de clases F1 Testing](./images/DiagramaClasesF1Testing.png)
+
 # Autora
 Leticia Sánchez Romero
