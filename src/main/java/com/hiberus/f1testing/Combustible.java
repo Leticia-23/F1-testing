@@ -1,6 +1,6 @@
-package com.hiberus.F1testing;
+package com.hiberus.f1testing;
 
-import com.hiberus.F1testing.exceptions.CombustibleNegativoException;
+import com.hiberus.f1testing.exceptions.CombustibleNegativoException;
 
 public class Combustible {
 

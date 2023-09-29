@@ -1,14 +1,14 @@
-package com.hiberus.F1testing;
+package com.hiberus.f1testing;
 
-import com.hiberus.F1testing.exceptions.CantidadNeumaticosNegativo;
-import com.hiberus.F1testing.exceptions.CombustibleNegativoException;
-import com.hiberus.F1testing.exceptions.PorcentajeVidaNeumaticoNoValido;
-import com.hiberus.F1testing.exceptions.RecorridoKmNegativo;
+import com.hiberus.f1testing.exceptions.CantidadNeumaticosNegativo;
+import com.hiberus.f1testing.exceptions.CombustibleNegativoException;
+import com.hiberus.f1testing.exceptions.PorcentajeVidaNeumaticoNoValido;
+import com.hiberus.f1testing.exceptions.RecorridoKmNegativo;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class EstrategiaTest {
+class EstrategiaTest {
 
     private final Combustible COMBUSTIBLE = new Combustible(TipoCombustible.DIESEL, 145.0f);
     private final float COMBUSTIBLE_CONSUMIDO_KM = 0.33f;
@@ -34,7 +34,7 @@ public class EstrategiaTest {
     }
 
     @Test
-    void estrategiaNoInstanciadaSiLitrosCombustibleConsumidoNegativo() {
+    void noInstanciarEstrategiaSiLitrosCombustibleConsumidoNegativo() {
 
         // Given
         int combustibleConsumidoPorKmRecorrido = -1;
@@ -44,7 +44,7 @@ public class EstrategiaTest {
     }
 
     @Test
-    void estrategiaNoInstanciadaSiPorcentajeVidaConsumidoMenorACero() {
+    void noInstanciarEstrategiaSiPorcentajeVidaConsumidoMenorACero() {
 
         //Given
         float porcentajeVidaNeumaticosConsumidoKm = -0.1f;
@@ -54,7 +54,7 @@ public class EstrategiaTest {
     }
 
     @Test
-    void estrategiaNoInstanciadaSiPorcentajeVidaConsumidoMayorACien() {
+    void noInstanciarEstrategiaSiPorcentajeVidaConsumidoMayorACien() {
 
         //Given
         float porcentajeVidaNeumaticosConsumidoKm = 100.1f;
@@ -64,7 +64,7 @@ public class EstrategiaTest {
     }
 
     @Test
-    void estrategiaNoInstanciadaSiRecorridoNegativo() {
+    void noInstanciarEstrategiaSiRecorridoNegativo() {
 
         //Given
         float kilometrosRecorrido = -0.1f;

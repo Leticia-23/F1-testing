@@ -1,6 +1,6 @@
-package com.hiberus.F1testing;
+package com.hiberus.f1testing;
 
-import com.hiberus.F1testing.exceptions.CombustibleNegativoException;
+import com.hiberus.f1testing.exceptions.CombustibleNegativoException;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -30,7 +30,7 @@ class CombustibleTest {
 
 
     @Test
-    void combustibleNoInstanciadoSiLitrosCombustibleNegativo() {
+    void noInstanciarCombustibleSiLitrosCombustibleNegativo() {
 
         // Given
         int litrosCombustible = -1;
@@ -44,7 +44,7 @@ class CombustibleTest {
             "DIESEL",
             "GASOLINA"
     })
-    void instanciarCombustibleConTipoCombustibleYObtienerTipoCombustible(String tipo) throws CombustibleNegativoException {
+    void instanciarCombustibleConTipoCombustibleYObtenerTipoCombustible(String tipo) throws CombustibleNegativoException {
 
         // Given
         TipoCombustible tipoCombustible = TipoCombustible.valueOf(tipo);
@@ -57,13 +57,12 @@ class CombustibleTest {
     }
 
     @Test
-    void combustibleInstanciadoCorrecto() throws CombustibleNegativoException {
+    void instanciarCombustibleConLitrosCombustibleYObtenerLitrosCombustible() throws CombustibleNegativoException {
 
         //Given & When
         Combustible combustible = new Combustible(TIPO_COMBUSTIBLE, LITROS_COMBUSTIBLE);
 
         //Then
-        assertEquals(TIPO_COMBUSTIBLE, combustible.getTipoCombustible());
         assertEquals(LITROS_COMBUSTIBLE, combustible.getLitrosCombustible());
     }
 

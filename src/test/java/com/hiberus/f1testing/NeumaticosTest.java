@@ -1,8 +1,8 @@
-package com.hiberus.F1testing;
+package com.hiberus.f1testing;
 
-import com.hiberus.F1testing.exceptions.CantidadNeumaticosNegativo;
-import com.hiberus.F1testing.exceptions.CombustibleNegativoException;
-import com.hiberus.F1testing.exceptions.PorcentajeVidaNeumaticoNoValido;
+import com.hiberus.f1testing.exceptions.CantidadNeumaticosNegativo;
+import com.hiberus.f1testing.exceptions.CombustibleNegativoException;
+import com.hiberus.f1testing.exceptions.PorcentajeVidaNeumaticoNoValido;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class NeumaticosTest {
+class NeumaticosTest {
 
     private final MarcaNeumatico MARCAS_NEUMATICOS = MarcaNeumatico.PIRELLI;
     private final float PORCENTAJE_VIDA = 99.0f;
@@ -33,7 +33,7 @@ public class NeumaticosTest {
 
 
     @Test
-    void combustibleNoInstanciadoSiLitrosCombustibleNegativo() {
+    void noInstanciarNeumaticosSiCantidadNeumaticosNegativo() {
 
         // Given
         int cantidadNeumaticos = -1;
@@ -43,7 +43,7 @@ public class NeumaticosTest {
     }
 
     @Test
-    void neumaticosNoInstanciadosSiPorcentajeVidaMenorACero() {
+    void noInstanciarNeumaticosSiPorcentajeVidaMenorACero() {
 
         // Given
         float porcentajeVida = -0.1f;
@@ -53,7 +53,7 @@ public class NeumaticosTest {
     }
 
     @Test
-    void neumaticosNoInstanciadosSiPorcentajeVidaMayorACien() {
+    void noInstanciarNeumaticosSiPorcentajeVidaMayorACien() {
 
         // Given
         float porcentajeVida = 100.1f;
@@ -68,7 +68,7 @@ public class NeumaticosTest {
             "PIRELLI",
             "BRIDGESTONE"
     })
-    void instanciarCombustibleConTipoCombustibleYObtienerTipoCombustible(String tipo) throws CombustibleNegativoException, PorcentajeVidaNeumaticoNoValido, CantidadNeumaticosNegativo {
+    void instanciarNeumaticosConMarcaNeumaticoYObtenerMarcaNeumatico(String tipo) throws CombustibleNegativoException, PorcentajeVidaNeumaticoNoValido, CantidadNeumaticosNegativo {
 
         // Given
         MarcaNeumatico marcaNeumatico = MarcaNeumatico.valueOf(tipo);
@@ -81,14 +81,22 @@ public class NeumaticosTest {
     }
 
     @Test
-    void neumaticosInstanciadoCorrecto() throws PorcentajeVidaNeumaticoNoValido, CantidadNeumaticosNegativo {
+    void instanciarNeumaticosConPorcentajeVidaYObtenerPorcentajeVida() throws PorcentajeVidaNeumaticoNoValido, CantidadNeumaticosNegativo {
 
         // Given & When
         Neumaticos neumaticos = new Neumaticos(MARCAS_NEUMATICOS, PORCENTAJE_VIDA, CANTIDAD_NEUMATICOS);
 
         // Then
-        assertEquals(MARCAS_NEUMATICOS, neumaticos.getMarca());
         assertEquals(PORCENTAJE_VIDA, neumaticos.getPorcentajeVida());
+    }
+
+    @Test
+    void instanciarNeumaticosConCantidadNeumaticosYObtenerCantidadNeumaticos() throws PorcentajeVidaNeumaticoNoValido, CantidadNeumaticosNegativo {
+
+        // Given & When
+        Neumaticos neumaticos = new Neumaticos(MARCAS_NEUMATICOS, PORCENTAJE_VIDA, CANTIDAD_NEUMATICOS);
+
+        // Then
         assertEquals(CANTIDAD_NEUMATICOS, neumaticos.getCantidadNeumaticos());
     }
 }

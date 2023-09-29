@@ -1,7 +1,7 @@
-package com.hiberus.F1testing;
+package com.hiberus.f1testing;
 
-import com.hiberus.F1testing.exceptions.CantidadNeumaticosNegativo;
-import com.hiberus.F1testing.exceptions.PorcentajeVidaNeumaticoNoValido;
+import com.hiberus.f1testing.exceptions.CantidadNeumaticosNegativo;
+import com.hiberus.f1testing.exceptions.PorcentajeVidaNeumaticoNoValido;
 
 public class Neumaticos {
     private final MarcaNeumatico marca;

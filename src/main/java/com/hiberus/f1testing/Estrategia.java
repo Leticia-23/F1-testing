@@ -1,9 +1,8 @@
-package com.hiberus.F1testing;
+package com.hiberus.f1testing;
 
-
-import com.hiberus.F1testing.exceptions.CombustibleNegativoException;
-import com.hiberus.F1testing.exceptions.PorcentajeVidaNeumaticoNoValido;
-import com.hiberus.F1testing.exceptions.RecorridoKmNegativo;
+import com.hiberus.f1testing.exceptions.CombustibleNegativoException;
+import com.hiberus.f1testing.exceptions.PorcentajeVidaNeumaticoNoValido;
+import com.hiberus.f1testing.exceptions.RecorridoKmNegativo;
 
 public class Estrategia {
 
@@ -35,21 +34,16 @@ public class Estrategia {
     }
 
     public boolean esViable() {
-        return !sinCombustibleAntesFinRecorrido(combustible, combustibleConsumidoPorKmRecorrido, kilometrosRecorrido) && !neumaticosDesgastadosAntesFinRecorrido(neumaticos, porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido, kilometrosRecorrido) && (neumaticos.getCantidadNeumaticos() == 4);
+       float combustibleFinal = combustibleFinalRecorrido();
+       float desgasteNeumaticosFinal = desgasteNeumaticosFinalRecorrido();
+       return (combustibleFinal > 0) && (desgasteNeumaticosFinal > 0) && (neumaticos.getCantidadNeumaticos() == 4);
     }
 
-    private boolean sinCombustibleAntesFinRecorrido(Combustible combustible, float combustibleConsumidoPorKmRecorrido, float kilometrosARecorrer) {
-
-        float combustibleFinal = combustible.getLitrosCombustible() - kilometrosARecorrer * combustibleConsumidoPorKmRecorrido;
-
-        return combustibleFinal <= 0;
-
+    private float combustibleFinalRecorrido() {
+        return combustible.getLitrosCombustible() - kilometrosRecorrido * combustibleConsumidoPorKmRecorrido;
     }
 
-    private boolean neumaticosDesgastadosAntesFinRecorrido(Neumaticos neumaticos, float porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido, float kilometrosARecorrer) {
-
-        float porcentajeFinal = neumaticos.getPorcentajeVida() - kilometrosARecorrer * porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido;
-
-        return porcentajeFinal <= 0;
+    private float desgasteNeumaticosFinalRecorrido() {
+        return neumaticos.getPorcentajeVida() - kilometrosRecorrido * porcentajeDeVidaDeNeumaticosConsumidoPorKmRecorrido;
     }
 }
